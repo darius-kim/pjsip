@@ -1,0 +1,6 @@
+[submodule "openh264"]
+	path = openh264
+	url = https://github.com/cisco/openh264
+[submodule "libyuv"]
+	path = libyuv
+	url = https://github.com/lemenkov/libyuv.git
