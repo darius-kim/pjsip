@@ -1003,6 +1003,9 @@
 #   define PJMEDIA_HAS_VIDEO				0
 #endif
 
+#ifndef PJMEDIA_HAS_OPENH264
+#define PJMEDIA_HAS_OPENH264			0
+#endif
 
 /**
  * Specify if FFMPEG is available. The value here will be used as the default
@@ -1066,6 +1069,15 @@
  */
 #ifndef PJMEDIA_HAS_LIBAVCORE
 #   define PJMEDIA_HAS_LIBAVCORE			PJMEDIA_HAS_FFMPEG
+#endif
+
+/**
+ * Specify if libyuv is available.
+ *
+ * Default: PJMEDIA_HAS_LIBYUV (or detected by configure)
+ */
+#ifndef PJMEDIA_HAS_LIBYUV
+#   define PJMEDIA_HAS_LIBYUV			0
 #endif
 
 /**

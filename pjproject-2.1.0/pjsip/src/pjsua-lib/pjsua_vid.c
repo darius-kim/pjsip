@@ -82,6 +82,15 @@ pj_status_t pjsua_vid_subsys_init(void)
     }
 #endif
 
+#if PJMEDIA_HAS_VIDEO && PJMEDIA_HAS_CISCO_OPENH264
+	status = pjmedia_codec_openh264_vid_init(NULL, &pjsua_var.cp.factory);
+	if (status != PJ_SUCCESS) {
+		PJ_PERROR(1,(THIS_FILE, status,
+			"Error initializing openh264 library"));
+		goto on_error;
+	}
+#endif
+
     status = pjmedia_vid_dev_subsys_init(&pjsua_var.cp.factory);
     if (status != PJ_SUCCESS) {
 	PJ_PERROR(1,(THIS_FILE, status,

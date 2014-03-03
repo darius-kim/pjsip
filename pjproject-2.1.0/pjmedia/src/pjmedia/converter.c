@@ -34,12 +34,16 @@ PJ_DECL(pj_status_t)
 pjmedia_libswscale_converter_init(pjmedia_converter_mgr *mgr);
 #endif
 
+#ifdef PJMEDIA_HAS_LIBYUV
+PJ_DECL(pj_status_t)
+pjmedia_libyuv_converter_init(pjmedia_converter_mgr *mgr);
+#endif
 
 PJ_DEF(pj_status_t) pjmedia_converter_mgr_create(pj_pool_t *pool,
 					         pjmedia_converter_mgr **p_mgr)
 {
     pjmedia_converter_mgr *mgr;
-#if PJMEDIA_HAS_LIBSWSCALE && PJMEDIA_HAS_LIBAVUTIL
+#if ((PJMEDIA_HAS_LIBSWSCALE && PJMEDIA_HAS_LIBAVUTIL) || PJMEDIA_HAS_LIBYUV)
     pj_status_t status = PJ_SUCCESS;
 #endif
 
@@ -55,6 +59,13 @@ PJ_DEF(pj_status_t) pjmedia_converter_mgr_create(pj_pool_t *pool,
 	PJ_PERROR(4,(THIS_FILE, status,
 		     "Error initializing libswscale converter"));
     }
+#endif
+#ifdef PJMEDIA_HAS_LIBYUV
+	status = pjmedia_libyuv_converter_init(mgr);
+	if (status != PJ_SUCCESS) {
+		PJ_PERROR(4,(THIS_FILE, status,
+			"Error initializing libyuv converter"));
+	}
 #endif
 
     if (p_mgr)

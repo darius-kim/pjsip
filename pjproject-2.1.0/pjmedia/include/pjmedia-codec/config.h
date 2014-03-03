@@ -460,6 +460,8 @@
  * @}
  */
 
-
+#ifndef PJMEDIA_HAS_CISCO_OPENH264
+#   define PJMEDIA_HAS_CISCO_OPENH264	PJMEDIA_HAS_OPENH264
+#endif
 
 #endif	/* __PJMEDIA_CODEC_CONFIG_H__ */
