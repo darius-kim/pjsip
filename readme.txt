@@ -15,7 +15,9 @@ installation
 2. download sdl2 binary from http://www.libsdl.org/hg.php
 3. extract sdl2 to git working directory
 4. open pjproject-2.1.0/pjproject-vs9.sln
-5. build pjproject
+5. build libyuv (https://code.google.com/p/libyuv/wiki/GettingStarted)
 6. check libyuv.lib at <working directory>/libyuv
-7. copy sdl2.dll to pjproject-2.1.0/pjsip-apps/bin
-8. copy welsdec.dll/welsenc.dll/welsvp.dll to pjproject-2.1.0/pjsip-apps/bin
+7. build pjproject
+8. copy sdl2.dll to pjproject-2.1.0/pjsip-apps/bin or %PATH%
+9. copy welsdec.dll/welsenc.dll/welsvp.dll to pjproject-2.1.0/pjsip-apps/bin
+   or %PATH%
